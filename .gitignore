@@ -1,0 +1,22 @@
+# Node/Angular
+node_modules/
+dist/
+.angular/
+**/*.log
+
+# .NET build filer
+**/bin/
+**/obj/
+*.user
+*.rsuser
+*.suo
+*.cache
+
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+desktop.ini
