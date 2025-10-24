@@ -90,7 +90,7 @@ namespace IndkoebsGenieBackend.Migrations
                         new
                         {
                             Id = 1,
-                            Category = 0,
+                            Category = 1,
                             GroceryListId = 1,
                             IsCompleted = false,
                             Name = "Mælk",
@@ -100,7 +100,7 @@ namespace IndkoebsGenieBackend.Migrations
                         new
                         {
                             Id = 2,
-                            Category = 0,
+                            Category = 2,
                             GroceryListId = 1,
                             IsCompleted = false,
                             Name = "Brød",

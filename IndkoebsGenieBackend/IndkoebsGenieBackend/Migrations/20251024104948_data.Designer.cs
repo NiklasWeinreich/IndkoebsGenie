@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndkoebsGenieBackend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20251023164807_data")]
+    [Migration("20251024104948_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -93,7 +93,7 @@ namespace IndkoebsGenieBackend.Migrations
                         new
                         {
                             Id = 1,
-                            Category = 0,
+                            Category = 1,
                             GroceryListId = 1,
                             IsCompleted = false,
                             Name = "Mælk",
@@ -103,7 +103,7 @@ namespace IndkoebsGenieBackend.Migrations
                         new
                         {
                             Id = 2,
-                            Category = 0,
+                            Category = 2,
                             GroceryListId = 1,
                             IsCompleted = false,
                             Name = "Brød",

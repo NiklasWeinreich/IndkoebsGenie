@@ -87,26 +87,26 @@ namespace IndkoebsGenieBackend.Controllers.ProductItemController
         }
 
 
-        [HttpPatch("{id:int}/toggle")]
-        public async Task<ActionResult<ProductItemResponse>> ToggleAsync([FromRoute] int id, [FromQuery] bool completed = true)
-        {
+        //[HttpPatch("{id:int}/toggle")]
+        //public async Task<ActionResult<ProductItemResponse>> ToggleAsync([FromRoute] int id, [FromQuery] bool completed = true)
+        //{
 
-            var current = await _service.GetByIdAsync(id);
-            if (current is null)
-                return NotFound(new { message = $"ProductItem with id {id} not found." });
+        //    var current = await _service.GetByIdAsync(id);
+        //    if (current is null)
+        //        return NotFound(new { message = $"ProductItem with id {id} not found." });
 
-            var request = new ProductItemRequest
-            {
-                Name = current.Name,
-                Quantity = current.Quantity,
-                Notes = current.Notes,
-                IsCompleted = completed,
-                Category = current.Category,
-                GroceryListId = current.GroceryListId
-            };
+        //    var request = new ProductItemRequest
+        //    {
+        //        Name = current.Name,
+        //        Quantity = current.Quantity,
+        //        Notes = current.Notes,
+        //        IsCompleted = completed,
+        //        Category = current.Category,
+        //        GroceryListId = current.GroceryListId
+        //    };
 
-            var updated = await _service.UpdateAsync(id, request);
-            return Ok(updated);
-        }
+        //    var updated = await _service.UpdateAsync(id, request);
+        //    return Ok(updated);
+        //}
     }
 }

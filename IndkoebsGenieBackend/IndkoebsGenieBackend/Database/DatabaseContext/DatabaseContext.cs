@@ -39,8 +39,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Quantity = 2,
                     Notes = "Letmælk",
                     IsCompleted = false,
-
-                    Category = default, 
+                    Category = ProductCategory.Dairy, 
                     GroceryListId = 1
                 },
                 new ProductItem
@@ -50,7 +49,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Quantity = 2,
                     Notes = "Fuldkorn",
                     IsCompleted = false,
-                    Category = default, 
+                    Category = ProductCategory.Bakery, 
                     GroceryListId = 1
                 }
             );

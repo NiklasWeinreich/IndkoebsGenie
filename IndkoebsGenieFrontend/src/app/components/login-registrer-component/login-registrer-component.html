@@ -1,0 +1,136 @@
+<!-- Login/Register -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center p-5 rounded-4 shadow-lg border-0 text-light" style="max-width: 640px; width: 100%;">
+
+        <!-- Lille ikon/logo -->
+        <i class="bi bi-cart3" style="font-size: 5rem;"></i>
+
+        <h2 class="fw-bold mb-2">Log ind eller registrer dig</h2>
+        <p class="lead text-light mb-4">
+            Få adgang til din personlige indkøbsliste – synkroniseret på tværs af dine enheder.
+        </p>
+
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#loginModal"
+                    type="button" aria-label="Åbn login">
+                    Log ind
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-secondary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#registerModal"
+                    type="button" aria-label="Åbn registrering">
+                    Registrer
+                </button>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-4 text-muted">
+
+        <!-- Mini featureliste -->
+        <div class="row text-start gy-2 justify-content-center mb-2">
+            <div class="col-11 col-md-10">
+                <div class="d-flex align-items-start gap-2">
+                    <span class="mt-1" aria-hidden="true">
+                        <i class="bi bi-check text-dark"></i>
+                    </span>
+                    <span><strong>Gem</strong> og organiser dine lister hurtigt.</span>
+                </div>
+            </div>
+            <div class="col-11 col-md-10">
+                <div class="d-flex align-items-start gap-2">
+                    <span class="mt-1" aria-hidden="true">
+                        <i class="bi bi-check text-dark"></i>
+                    </span>
+                    <span><strong>Synkronisér</strong> automatisk mellem mobil, tablet og desktop.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Log ind</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form novalidate>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label fw-bold">Email adresse</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Indtast din email"
+                                required autocomplete="email" inputmode="email">
+                        </div>
+                        <div class="mb-2">
+                            <label for="loginPassword" class="form-label fw-bold">Adgangskode</label>
+                            <input type="password" class="form-control" id="loginPassword"
+                                placeholder="Indtast din adgangskode" required autocomplete="current-password"
+                                minlength="6">
+                        </div>
+
+                        <!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Husk mig
+                                </label>
+                            </div>
+                            <a href="/forgot-password" class="text-decoration-none">Glemt adgangskode?</a>
+                        </div> -->
+
+                        <button type="submit" class="btn btn-primary w-100">Log ind</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="Fornavn" class="form-label fw-bold">Fornavn</label>
+                                <input type="text" class="form-control" id="Fornavn" placeholder="Indtast dit fornavn"
+                                    required autocomplete="given-name">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="Efternavn" class="form-label fw-bold">Efternavn</label>
+                                <input type="text" class="form-control" id="Efternavn"
+                                    placeholder="Indtast dit efternavn" required autocomplete="family-name">
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="registerEmail" class="form-label fw-bold">Email adresse</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Indtast din email"
+                                required autocomplete="email" inputmode="email">
+                        </div>
+                        <div class="mt-3">
+                            <label for="registerPassword" class="form-label fw-bold">Adgangskode</label>
+                            <input type="password" class="form-control" id="registerPassword"
+                                placeholder="Mindst 6 tegn" required autocomplete="new-password" minlength="6">
+                            <div class="form-text">Mindst 6 tegn. Brug gerne både bogstaver og tal.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Registrer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

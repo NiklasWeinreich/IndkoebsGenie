@@ -61,8 +61,8 @@ namespace IndkoebsGenieBackend.Migrations
                 columns: new[] { "Id", "Category", "GroceryListId", "IsCompleted", "Name", "Notes", "Quantity" },
                 values: new object[,]
                 {
-                    { 1, 0, 1, false, "Mælk", "Letmælk", 2 },
-                    { 2, 0, 1, false, "Brød", "Fuldkorn", 2 }
+                    { 1, 1, 1, false, "Mælk", "Letmælk", 2 },
+                    { 2, 2, 1, false, "Brød", "Fuldkorn", 2 }
                 });
 
             migrationBuilder.CreateIndex(
