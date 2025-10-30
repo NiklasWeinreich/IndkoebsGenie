@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndkoebsGenieBackend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20251030151620_data")]
+    [Migration("20251030162155_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -41,7 +41,12 @@ namespace IndkoebsGenieBackend.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("GroceryLists");
 
@@ -50,7 +55,8 @@ namespace IndkoebsGenieBackend.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(2025, 10, 23, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Title = "Min første liste"
+                            Title = "Min første liste",
+                            UserId = 2
                         });
                 });
 
@@ -191,6 +197,17 @@ namespace IndkoebsGenieBackend.Migrations
                         });
                 });
 
+            modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.GroceryList", b =>
+                {
+                    b.HasOne("IndkoebsGenieBackend.Database.Entities.User", "User")
+                        .WithMany("GroceryLists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.ProductItem", b =>
                 {
                     b.HasOne("IndkoebsGenieBackend.Database.Entities.GroceryList", "GroceryList")
@@ -205,6 +222,11 @@ namespace IndkoebsGenieBackend.Migrations
             modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.GroceryList", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.User", b =>
+                {
+                    b.Navigation("GroceryLists");
                 });
 #pragma warning restore 612, 618
         }

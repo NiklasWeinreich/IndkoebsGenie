@@ -46,7 +46,9 @@ namespace IndkoebsGenieBackend.Repositories.UserRepository
 
         public async Task<User> GetUserByIdAsync(int id)
         {
-            return await _dbcontext.Users.FindAsync(id);
+            return await _dbcontext.Users
+            .Include(u => u.GroceryLists) 
+            .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task<User> UpdateUserByIdAsync(int userId, User updateUser)

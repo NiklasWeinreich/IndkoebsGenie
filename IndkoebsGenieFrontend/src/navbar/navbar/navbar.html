@@ -9,26 +9,28 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Venstre side (altid først) -->
       <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/current-list" routerLinkActive="active">
-            Aktuelle lister
-          </a>
+          <a class="nav-link fs-5" routerLink="/current-list" routerLinkActive="active">Aktuelle lister</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/create-list" routerLinkActive="active">
-            Ny liste
-          </a>
+          <a class="nav-link fs-5" routerLink="/create-list" routerLinkActive="active">Ny liste</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/about" routerLinkActive="active">
-            Om appen
-          </a>
+          <a class="nav-link fs-5" routerLink="/about" routerLinkActive="active">Om appen</a>
         </li>
       </ul>
-      <div class="d-flex ms-auto">
-        <button class="btn btn-outline-light" routerLink="/login-registrer" routerLinkActive="active" type="button">Log ind</button>
-      </div>
+
+      <!-- Højre side på desktop, men indgår i dropdown på mobil -->
+      <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
+        <li class="nav-item mt-2 mt-lg-0 me-lg-2">
+          <a class="btn btn-outline-light w-100 w-lg-auto" routerLink="/admin-panel" routerLinkActive="active">Admin</a>
+        </li>
+        <li class="nav-item mt-2 mt-lg-0">
+          <a class="btn btn-outline-light w-100 w-lg-auto" routerLink="/login-registrer" routerLinkActive="active">Log ind</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

@@ -137,5 +137,35 @@ namespace IndkoebsGenieBackend.Controllers.UserController
             }
         }
 
+        [HttpGet("{userId}/lists")]
+        public async Task<IActionResult> GetListsByUserId([FromRoute] int userId)
+        {
+            try
+            {
+                // Henter brugeren inkl. deres lister
+                var user = await _userRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                    return NotFound($"Bruger med ID {userId} blev ikke fundet.");
+
+                // Hvis brugeren ikke har nogen lister
+                if (user.GroceryLists == null || !user.GroceryLists.Any())
+                    return NoContent();
+
+                // Returner kun nødvendige data (DTO-lignende anonymt objekt)
+                var lists = user.GroceryLists.Select(gl => new
+                {
+                    gl.Id,
+                    gl.Title,
+                    gl.CreatedAt
+                });
+
+                return Ok(lists);
+            }
+            catch (Exception ex)
+            {
+                return Problem($"Der opstod en fejl ved hentning af lister: {ex.Message}");
+            }
+        }
+
     }
 }

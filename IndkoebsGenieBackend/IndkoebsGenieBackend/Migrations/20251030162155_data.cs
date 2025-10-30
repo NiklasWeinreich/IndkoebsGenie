@@ -14,20 +14,6 @@ namespace IndkoebsGenieBackend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "GroceryLists",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GroceryLists", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -46,6 +32,27 @@ namespace IndkoebsGenieBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroceryLists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroceryLists", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroceryLists_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,11 +80,6 @@ namespace IndkoebsGenieBackend.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "GroceryLists",
-                columns: new[] { "Id", "CreatedAt", "Title" },
-                values: new object[] { 1, new DateTime(2025, 10, 23, 0, 0, 0, 0, DateTimeKind.Utc), "Min første liste" });
-
-            migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Address", "City", "Email", "FirstName", "LastName", "Password", "PostalCode", "Region", "Role" },
                 values: new object[,]
@@ -87,6 +89,11 @@ namespace IndkoebsGenieBackend.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "GroceryLists",
+                columns: new[] { "Id", "CreatedAt", "Title", "UserId" },
+                values: new object[] { 1, new DateTime(2025, 10, 23, 0, 0, 0, 0, DateTimeKind.Utc), "Min første liste", 2 });
+
+            migrationBuilder.InsertData(
                 table: "ProductItems",
                 columns: new[] { "Id", "Category", "GroceryListId", "IsCompleted", "Name", "Notes", "Quantity" },
                 values: new object[,]
@@ -94,6 +101,11 @@ namespace IndkoebsGenieBackend.Migrations
                     { 1, 1, 1, false, "Mælk", "Letmælk", 2 },
                     { 2, 2, 1, false, "Brød", "Fuldkorn", 2 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroceryLists_UserId",
+                table: "GroceryLists",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductItems_GroceryListId_IsCompleted",
@@ -114,10 +126,10 @@ namespace IndkoebsGenieBackend.Migrations
                 name: "ProductItems");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "GroceryLists");
 
             migrationBuilder.DropTable(
-                name: "GroceryLists");
+                name: "Users");
         }
     }
 }

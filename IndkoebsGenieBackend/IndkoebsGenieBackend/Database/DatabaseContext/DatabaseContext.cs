@@ -30,6 +30,13 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
             modelBuilder.Entity<ProductItem>()
                 .HasIndex(p => new { p.GroceryListId, p.IsCompleted });
 
+            // User 1..* GroceryLists
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.GroceryLists)
+                .WithOne(gl => gl.User)
+                .HasForeignKey(gl => gl.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             // Seed data
             var seedCreatedAt = new DateTime(2025, 10, 23, 0, 0, 0, DateTimeKind.Utc);
 
@@ -37,7 +44,8 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
             {
                 Id = 1,
                 Title = "Min første liste",
-                CreatedAt = seedCreatedAt
+                CreatedAt = seedCreatedAt,
+                UserId = 2 
             });
 
             modelBuilder.Entity<ProductItem>().HasData(

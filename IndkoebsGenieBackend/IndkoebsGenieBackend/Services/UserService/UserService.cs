@@ -3,7 +3,7 @@ using IndkoebsGenieBackend.DTO.UserDTO;
 using IndkoebsGenieBackend.Helper;
 using IndkoebsGenieBackend.Interfaces.IUser;
 
-namespace IndkoebsGenieBackend.Services
+namespace IndkoebsGenieBackend.Services.UserService
 {
     public class UserService : IUserService
     {
