@@ -28,6 +28,27 @@ namespace IndkoebsGenieBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Region = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductItems",
                 columns: table => new
                 {
@@ -57,6 +78,15 @@ namespace IndkoebsGenieBackend.Migrations
                 values: new object[] { 1, new DateTime(2025, 10, 23, 0, 0, 0, 0, DateTimeKind.Utc), "Min første liste" });
 
             migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Address", "City", "Email", "FirstName", "LastName", "Password", "PostalCode", "Region", "Role" },
+                values: new object[,]
+                {
+                    { 1, "Admin vej 1", "AdminBy", "Admin@mail.com", "Admin", "Admin", "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2", "2500", "København", 1 },
+                    { 2, "Test Vej 2", "Test By", "testmail@mail.com", "Børge", "Jeppensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", "8000", "Jylland", 0 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "ProductItems",
                 columns: new[] { "Id", "Category", "GroceryListId", "IsCompleted", "Name", "Notes", "Quantity" },
                 values: new object[,]
@@ -69,6 +99,12 @@ namespace IndkoebsGenieBackend.Migrations
                 name: "IX_ProductItems_GroceryListId_IsCompleted",
                 table: "ProductItems",
                 columns: new[] { "GroceryListId", "IsCompleted" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -76,6 +112,9 @@ namespace IndkoebsGenieBackend.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ProductItems");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "GroceryLists");

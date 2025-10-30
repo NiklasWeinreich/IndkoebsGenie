@@ -109,6 +109,85 @@ namespace IndkoebsGenieBackend.Migrations
                         });
                 });
 
+            modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Admin vej 1",
+                            City = "AdminBy",
+                            Email = "Admin@mail.com",
+                            FirstName = "Admin",
+                            LastName = "Admin",
+                            Password = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2",
+                            PostalCode = "2500",
+                            Region = "København",
+                            Role = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Test Vej 2",
+                            City = "Test By",
+                            Email = "testmail@mail.com",
+                            FirstName = "Børge",
+                            LastName = "Jeppensen",
+                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            PostalCode = "8000",
+                            Region = "Jylland",
+                            Role = 0
+                        });
+                });
+
             modelBuilder.Entity("IndkoebsGenieBackend.Database.Entities.ProductItem", b =>
                 {
                     b.HasOne("IndkoebsGenieBackend.Database.Entities.GroceryList", "GroceryList")

@@ -1,6 +1,9 @@
 using IndkoebsGenieBackend.Database.DatabaseContext;
 using IndkoebsGenieBackend.Interfaces.IProductItem;
+using IndkoebsGenieBackend.Interfaces.IUser;
 using IndkoebsGenieBackend.Repositories.ProductItemRepository;
+using IndkoebsGenieBackend.Repositories.UserRepository;
+using IndkoebsGenieBackend.Services;
 using IndkoebsGenieBackend.Services.ProductItemService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Any;
@@ -26,6 +29,8 @@ namespace IndkoebsGenieBackend
             // Dependency Injection
             builder.Services.AddScoped<IProductItemRepository, ProductItemRepository>();
             builder.Services.AddScoped<IProductItemService, ProductItemService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             // Controllers + JSON enum som string
             builder.Services.AddControllers()
