@@ -1,13 +1,20 @@
+using IndkoebsGenieBackend.Authentication;
 using IndkoebsGenieBackend.Database.DatabaseContext;
+using IndkoebsGenieBackend.Helper;
+using IndkoebsGenieBackend.Interfaces.IEmailService;
 using IndkoebsGenieBackend.Interfaces.IProductItem;
 using IndkoebsGenieBackend.Interfaces.IUser;
 using IndkoebsGenieBackend.Repositories.ProductItemRepository;
 using IndkoebsGenieBackend.Repositories.UserRepository;
+using IndkoebsGenieBackend.Services.EmailService;
 using IndkoebsGenieBackend.Services.ProductItemService;
 using IndkoebsGenieBackend.Services.UserService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace IndkoebsGenieBackend
@@ -31,6 +38,28 @@ namespace IndkoebsGenieBackend
             builder.Services.AddScoped<IProductItemService, ProductItemService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<IJwtUtils, JwtUtils>();
+            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
+            builder.Services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Secret"]!)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
+
 
             // Controllers + JSON enum som string
             builder.Services.AddControllers()
@@ -46,13 +75,9 @@ namespace IndkoebsGenieBackend
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "IndkoebsGenieBackend",
-                    Version = "v1"
-                });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "IndkoebsGenieBackend", Version = "v1" });
 
-                // Gør ProductCategory enum læsbar i Swagger
+                // Enum mapping 
                 c.MapType<IndkoebsGenieBackend.Database.Entities.ProductCategory>(() => new OpenApiSchema
                 {
                     Type = "string",
@@ -60,7 +85,25 @@ namespace IndkoebsGenieBackend
                         .Select(n => (IOpenApiAny)new OpenApiString(n))
                         .ToList()
                 });
+
+                
+                var jwtScheme = new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Indtast: Bearer {token}",
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                };
+                c.AddSecurityDefinition("Bearer", jwtScheme);
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    [jwtScheme] = Array.Empty<string>()
+                });
             });
+
 
             // CORS (til Angular dev-server)
             const string CorsPolicy = "CorsPolicy";
@@ -92,7 +135,7 @@ namespace IndkoebsGenieBackend
 
             app.UseRouting();
 
-            // (Hvis du senere får auth, så skal app.UseAuthentication() stå før UseAuthorization)
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();

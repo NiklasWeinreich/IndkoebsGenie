@@ -1,0 +1,63 @@
+<!-- 1) DATA -->
+<table *ngIf="!isLoading && Users?.length"
+       class="table table-light table-striped table-hover border-dark">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Navn</th>
+      <th>Email</th>
+      <th>Adresse</th>
+      <th>By</th>
+      <th>Postnr.</th>
+      <th>Region</th>
+      <th>Rolle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of Users; trackBy: trackById">
+      <td>{{ u.id }}</td>
+      <td>{{ u.firstName }} {{ u.lastName }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.address }}</td>
+      <td>{{ u.city }}</td>
+      <td>{{ u.postalCode }}</td>
+      <td>{{ u.region }}</td>
+      <td>{{ u.role }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 2) LOADER (Bootstrap placeholder) -->
+<table *ngIf="isLoading" class="table border-dark">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Navn</th>
+      <th>Email</th>
+      <th>Adresse</th>
+      <th>By</th>
+      <th>Postnr.</th>
+      <th>Region</th>
+      <th>Rolle</th>
+    </tr>
+  </thead>
+  <tbody class="placeholder-glow">
+    <tr *ngFor="let _ of skeletonRows; let i = index; trackBy: trackByIndex">
+      <td><span class="placeholder col-6"></span></td>
+      <td><span class="placeholder col-8"></span></td>
+      <td><span class="placeholder col-10"></span></td>
+      <td><span class="placeholder col-9"></span></td>
+      <td><span class="placeholder col-7"></span></td>
+      <td><span class="placeholder col-5"></span></td>
+      <td><span class="placeholder col-8"></span></td>
+      <td><span class="placeholder col-6"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 3) TOMT RESULTAT -->
+<div *ngIf="!isLoading && Users && !Users.length"
+     class="alert alert-light border d-flex align-items-center gap-2" role="status">
+  <span class="bi bi-people"></span>
+  Ingen brugere fundet.
+</div>

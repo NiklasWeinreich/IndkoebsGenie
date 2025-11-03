@@ -12,21 +12,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './about-component.css',
 })
 export class AboutComponent {
-  Users: User [] = [];
 
-  constructor(private userservice: UserService) {}
-
-  ngOnInit() {
-    this.GetUsers();
-  }
-
-  GetUsers(): void{
-    this.userservice.getAllUsers().subscribe((data: User[]) => {
-      this.Users = data;
-      console.log(this.Users);
-    });
-  }
-  // Optimerer *ngFor ved at spore brugere via ID, så Angular genbruger DOM-elementer.
-  trackById = (_: number, u: User) => u.id;
 
 }

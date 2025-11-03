@@ -1,1 +1,40 @@
-<p>admin-panel-component works!</p>
+<div class="d-flex">
+    <!-- Sidebar (kun desktop) -->
+    <nav id="adminSidebar"
+        class="bg-primary bg-gradient p-3 vh-100 border-end border-white d-none d-lg-flex flex-column">
+        <div class="display-6 text-white text-center mb-4"> ADMIN PANEL <hr class="border-2">
+        </div>
+        <a class="btn btn-outline-light mb-3 w-100" routerLink="admin-users" routerLinkActive="active">BRUGERE</a>
+        <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+        <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+        <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+    </nav>
+
+    <!-- Mobil knap til at åbne sidebar -->
+    <button class="btn btn-outline-light btn-lg d-lg-none px-4 py-2 m-3 rounded-pill shadow-sm" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
+        <i class="bi bi-list fs-3 me-2"></i> Menu
+    </button>
+
+
+    <!-- Mobil sidebar (offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">ADMIN PANEL</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group">
+                <a class="btn btn-outline-light mb-3 w-100" routerLink="admin-users" routerLinkActive="active">BRUGERE</a>
+                <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+                <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+                <a class="btn btn-outline-light mb-3 w-100" routerLinkActive="active"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indholdsområde -->
+    <div class="content flex-grow-1 p-4 overflow-auto">
+        <router-outlet></router-outlet>
+    </div>
+</div>

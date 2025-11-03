@@ -14,6 +14,8 @@ namespace IndkoebsGenieBackend.Database.Entities
         public string PostalCode { get; set; } = "";
         public string Region { get; set; } = "";
         public Role Role { get; set; }
+        public string? PasswordResetToken { get; set; }
+        public DateTime? TokenExpires { get; set; }
         public ICollection<GroceryList> GroceryLists { get; set; } = new List<GroceryList>();
     }
 }
