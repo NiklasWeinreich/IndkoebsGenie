@@ -25,10 +25,16 @@
       <!-- Højre side på desktop, men indgår i dropdown på mobil -->
       <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
         <li class="nav-item mt-2 mt-lg-0 me-lg-2">
-          <a class="btn btn-outline-light w-100 w-lg-auto" routerLink="/admin-panel" routerLinkActive="active">Admin</a>
+          <a *ngIf="currentUser && roleChecker === 'Admin'" class="btn btn-outline-light w-100 w-lg-auto" routerLink="/admin-panel" routerLinkActive="active">Admin</a>
         </li>
         <li class="nav-item mt-2 mt-lg-0">
-          <a class="btn btn-outline-light w-100 w-lg-auto" routerLink="/login-registrer" routerLinkActive="active">Log ind</a>
+          <a *ngIf="!isLoggedIn" class="btn btn-outline-light w-100 w-lg-auto" routerLink="/login-registrer" routerLinkActive="active">Log ind</a>
+        </li>
+        <li class="nav-item mt-2 mt-lg-0 me-lg-2">
+          <a *ngIf="isLoggedIn" class="btn btn-outline-light w-100 w-lg-auto" (click)="logout()">Min Profil</a>
+        </li>
+          <li class="nav-item mt-2 mt-lg-0">
+          <a *ngIf="isLoggedIn" class="btn btn-outline-light w-100 w-lg-auto" (click)="logout()">Log ud</a>
         </li>
       </ul>
     </div>
