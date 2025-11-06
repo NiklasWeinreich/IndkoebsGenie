@@ -102,7 +102,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = AdminHash,
                     Role = Role.Admin,
                     Region = "København",
-                    PostalCode = "2500",
+                    PostalCode = 2500,
                     Address = "Admin Vej 1",
                     City = "København"
                 },
@@ -115,7 +115,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = AdminHash,
                     Role = Role.Admin,
                     Region = "Sjælland",
-                    PostalCode = "4000",
+                    PostalCode = 4000,
                     Address = "Hovedgaden 10",
                     City = "Roskilde"
                 },
@@ -128,7 +128,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Jylland",
-                    PostalCode = "8000",
+                    PostalCode = 8000,
                     Address = "Test Vej 2",
                     City = "Aarhus"
                 },
@@ -141,7 +141,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Hovedstaden",
-                    PostalCode = "2100",
+                    PostalCode = 2100,
                     Address = "Østerbrogade 45",
                     City = "København"
                 },
@@ -154,7 +154,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Nordjylland",
-                    PostalCode = "9000",
+                    PostalCode = 9000,
                     Address = "Algade 12",
                     City = "Aalborg"
                 },
@@ -167,7 +167,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Syddanmark",
-                    PostalCode = "5000",
+                    PostalCode = 5000,
                     Address = "Vestergade 7",
                     City = "Odense"
                 },
@@ -180,7 +180,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Midtjylland",
-                    PostalCode = "8600",
+                    PostalCode = 8600,
                     Address = "Byvej 3",
                     City = "Silkeborg"
                 },
@@ -193,7 +193,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Sjælland",
-                    PostalCode = "4700",
+                    PostalCode = 4700,
                     Address = "Parkvej 22",
                     City = "Næstved"
                 },
@@ -206,7 +206,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Nordjylland",
-                    PostalCode = "9800",
+                    PostalCode = 9800,
                     Address = "Havnevej 5",
                     City = "Hjørring"
                 },
@@ -219,7 +219,7 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                     Password = CustomerHash,
                     Role = Role.Customer,
                     Region = "Syddanmark",
-                    PostalCode = "6000",
+                    PostalCode = 6000,
                     Address = "Torvegade 9",
                     City = "Kolding"
                 }

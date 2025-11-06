@@ -23,9 +23,6 @@ namespace IndkoebsGenieBackend.Controllers.AuthController
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            Console.WriteLine(
-            BCrypt.Net.BCrypt.Verify("Passw0rd",
-            "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2"));
             var response = await _userService.AuthenticateUserAsync(loginRequest);
             return response == null ? Unauthorized("Invalid credentials") : Ok(response);
         }

@@ -25,7 +25,7 @@ namespace IndkoebsGenieBackend.Migrations
                     Password = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostalCode = table.Column<int>(type: "int", nullable: false),
                     Region = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     PasswordResetToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -86,16 +86,16 @@ namespace IndkoebsGenieBackend.Migrations
                 columns: new[] { "Id", "Address", "City", "Email", "FirstName", "LastName", "Password", "PasswordResetToken", "PostalCode", "Region", "Role", "TokenExpires" },
                 values: new object[,]
                 {
-                    { 1, "Admin Vej 1", "København", "admin@mail.com", "Admin", "One", "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2", null, "2500", "København", 1, null },
-                    { 2, "Hovedgaden 10", "Roskilde", "admin2@mail.com", "Admin", "Two", "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2", null, "4000", "Sjælland", 1, null },
-                    { 3, "Test Vej 2", "Aarhus", "testmail@mail.com", "Børge", "Jeppensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "8000", "Jylland", 0, null },
-                    { 4, "Østerbrogade 45", "København", "mette.larsen@mail.com", "Mette", "Larsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "2100", "Hovedstaden", 0, null },
-                    { 5, "Algade 12", "Aalborg", "jonas.poulsen@mail.com", "Jonas", "Poulsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "9000", "Nordjylland", 0, null },
-                    { 6, "Vestergade 7", "Odense", "sofie.nielsen@mail.com", "Sofie", "Nielsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "5000", "Syddanmark", 0, null },
-                    { 7, "Byvej 3", "Silkeborg", "anders.madsen@mail.com", "Anders", "Madsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "8600", "Midtjylland", 0, null },
-                    { 8, "Parkvej 22", "Næstved", "camilla.hansen@mail.com", "Camilla", "Hansen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "4700", "Sjælland", 0, null },
-                    { 9, "Havnevej 5", "Hjørring", "rasmus.christensen@mail.com", "Rasmus", "Christensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "9800", "Nordjylland", 0, null },
-                    { 10, "Torvegade 9", "Kolding", "ida.jorgensen@mail.com", "Ida", "Jørgensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, "6000", "Syddanmark", 0, null }
+                    { 1, "Admin Vej 1", "København", "admin@mail.com", "Admin", "One", "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2", null, 2500, "København", 1, null },
+                    { 2, "Hovedgaden 10", "Roskilde", "admin2@mail.com", "Admin", "Two", "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2", null, 4000, "Sjælland", 1, null },
+                    { 3, "Test Vej 2", "Aarhus", "testmail@mail.com", "Børge", "Jeppensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 8000, "Jylland", 0, null },
+                    { 4, "Østerbrogade 45", "København", "mette.larsen@mail.com", "Mette", "Larsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 2100, "Hovedstaden", 0, null },
+                    { 5, "Algade 12", "Aalborg", "jonas.poulsen@mail.com", "Jonas", "Poulsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 9000, "Nordjylland", 0, null },
+                    { 6, "Vestergade 7", "Odense", "sofie.nielsen@mail.com", "Sofie", "Nielsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 5000, "Syddanmark", 0, null },
+                    { 7, "Byvej 3", "Silkeborg", "anders.madsen@mail.com", "Anders", "Madsen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 8600, "Midtjylland", 0, null },
+                    { 8, "Parkvej 22", "Næstved", "camilla.hansen@mail.com", "Camilla", "Hansen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 4700, "Sjælland", 0, null },
+                    { 9, "Havnevej 5", "Hjørring", "rasmus.christensen@mail.com", "Rasmus", "Christensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 9800, "Nordjylland", 0, null },
+                    { 10, "Torvegade 9", "Kolding", "ida.jorgensen@mail.com", "Ida", "Jørgensen", "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG", null, 6000, "Syddanmark", 0, null }
                 });
 
             migrationBuilder.InsertData(

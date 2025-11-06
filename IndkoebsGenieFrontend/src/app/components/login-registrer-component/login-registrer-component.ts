@@ -35,7 +35,7 @@ export class LoginRegistrerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ifAlreadyLoggedIn();
+    this.ifAlreadyLoggedIn();    
   }
 
  login(): void {

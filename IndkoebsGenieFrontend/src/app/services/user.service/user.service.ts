@@ -14,4 +14,9 @@ export class UserService {
     console.log('Henter brugere: ' + this.productItemApiUrl);
     return this.http.get<any>(this.productItemApiUrl + '/GetAllUsers');
   }
+
+  getUserById(userId: number) {
+    console.log('Henter bruger med ID: ' + userId);
+    return this.http.get<any>(this.productItemApiUrl + userId);
+  }
 }

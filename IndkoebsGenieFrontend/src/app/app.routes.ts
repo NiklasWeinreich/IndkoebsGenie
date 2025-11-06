@@ -7,6 +7,7 @@ export const routes: Routes = [
     { path: 'create-list', loadComponent: () => import('./components/create-list-component/create-list-component').then(m => m.CreateListComponent) },
     { path: 'login-registrer', loadComponent: () => import('./components/login-registrer-component/login-registrer-component').then(m => m.LoginRegistrerComponent) },
     { path: 'admin-panel', loadComponent: () => import('./components/admin-panel-component/admin-panel-component').then(m => m.AdminPanelComponent) },
+    {path: 'my-profile', loadComponent:() => import('./components/my-profile-component/my-profile-component').then(m => m.MyProfileComponent)},
     {
         path: 'admin-panel',
         loadComponent: () => import('./components/admin-panel-component/admin-panel-component')

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndkoebsGenieBackend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20251106080638_data")]
+    [Migration("20251106125430_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -162,9 +162,8 @@ namespace IndkoebsGenieBackend.Migrations
                     b.Property<string>("PasswordResetToken")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
 
                     b.Property<string>("Region")
                         .IsRequired()
@@ -193,7 +192,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Admin",
                             LastName = "One",
                             Password = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2",
-                            PostalCode = "2500",
+                            PostalCode = 2500,
                             Region = "København",
                             Role = 1
                         },
@@ -206,7 +205,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Admin",
                             LastName = "Two",
                             Password = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2",
-                            PostalCode = "4000",
+                            PostalCode = 4000,
                             Region = "Sjælland",
                             Role = 1
                         },
@@ -219,7 +218,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Børge",
                             LastName = "Jeppensen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "8000",
+                            PostalCode = 8000,
                             Region = "Jylland",
                             Role = 0
                         },
@@ -232,7 +231,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Mette",
                             LastName = "Larsen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "2100",
+                            PostalCode = 2100,
                             Region = "Hovedstaden",
                             Role = 0
                         },
@@ -245,7 +244,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Jonas",
                             LastName = "Poulsen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "9000",
+                            PostalCode = 9000,
                             Region = "Nordjylland",
                             Role = 0
                         },
@@ -258,7 +257,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Sofie",
                             LastName = "Nielsen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "5000",
+                            PostalCode = 5000,
                             Region = "Syddanmark",
                             Role = 0
                         },
@@ -271,7 +270,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Anders",
                             LastName = "Madsen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "8600",
+                            PostalCode = 8600,
                             Region = "Midtjylland",
                             Role = 0
                         },
@@ -284,7 +283,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Camilla",
                             LastName = "Hansen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "4700",
+                            PostalCode = 4700,
                             Region = "Sjælland",
                             Role = 0
                         },
@@ -297,7 +296,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Rasmus",
                             LastName = "Christensen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "9800",
+                            PostalCode = 9800,
                             Region = "Nordjylland",
                             Role = 0
                         },
@@ -310,7 +309,7 @@ namespace IndkoebsGenieBackend.Migrations
                             FirstName = "Ida",
                             LastName = "Jørgensen",
                             Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
-                            PostalCode = "6000",
+                            PostalCode = 6000,
                             Region = "Syddanmark",
                             Role = 0
                         });

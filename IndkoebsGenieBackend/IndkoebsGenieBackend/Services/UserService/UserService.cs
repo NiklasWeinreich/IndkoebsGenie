@@ -164,7 +164,7 @@ namespace IndkoebsGenieBackend.Services.UserService
                        $"Klik på linket her for at nulstille din adgangskode:<br>" +
                        $"<a href=\"{resetLink}\">Nulstil adgangskode</a><br><br>" +
                        "Hvis du ikke bad om dette, ignorér venligst denne mail.<br><br>" +
-                       "Hilsen<br>EvenBetter Teamet"
+                       "Hilsen<br>IndKoebsGenie Teamet"
             };
 
             _emailService.SendEmail(mail);
