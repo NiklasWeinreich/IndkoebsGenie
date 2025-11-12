@@ -84,12 +84,8 @@ namespace IndkoebsGenieBackend.Database.DatabaseContext
                 }
             );
 
-            // ----- Statisk bcrypt-hash (genereret én gang for stabil EF-model) -----
-            // Klartekst for reference (brug KUN i dev):
-            // Admin:    Passw0rd
-            // Customer: Passw0rd
-            const string AdminHash = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2";
-            const string CustomerHash = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG";
+            const string AdminHash = "$2b$12$U4g5ba6EWpUaAt9CVWAgT./XXUjs3fKjpAsawmqjvvYySgrwUy1.6";
+            const string CustomerHash = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.";
 
 
             modelBuilder.Entity<User>().HasData(

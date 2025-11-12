@@ -6,6 +6,7 @@ using IndkoebsGenieBackend.Interfaces.IProductItem;
 using IndkoebsGenieBackend.Interfaces.IUser;
 using IndkoebsGenieBackend.Repositories.ProductItemRepository;
 using IndkoebsGenieBackend.Repositories.UserRepository;
+using IndkoebsGenieBackend.Services;
 using IndkoebsGenieBackend.Services.EmailService;
 using IndkoebsGenieBackend.Services.ProductItemService;
 using IndkoebsGenieBackend.Services.UserService;
@@ -40,6 +41,8 @@ namespace IndkoebsGenieBackend
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<IJwtUtils, JwtUtils>();
+            builder.Services.AddScoped<SeederService>();
+
             builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
             builder.Services
@@ -123,6 +126,12 @@ namespace IndkoebsGenieBackend
 
             if (app.Environment.IsDevelopment())
             {
+                using (var scope = app.Services.CreateScope())
+                {
+                    var seeder = scope.ServiceProvider.GetRequiredService<SeederService>();
+                    seeder.Seed();
+                }
+
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }

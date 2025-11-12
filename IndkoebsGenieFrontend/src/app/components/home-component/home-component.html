@@ -1,0 +1,44 @@
+<div class="container-fluid py-5">
+  <div class="container text-center py-5">
+    <h1 class="fw-bold mb-4">Velkommen til IndkøbsGenie!</h1>
+    <p class="lead text-muted mb-5">
+      Din personlige assistent til nem og effektiv indkøbsplanlægning. <br>
+      Kom i gang ved at oprette en ny indkøbsliste eller se dine eksisterende lister.
+    </p>
+
+    <!-- Login / Signup -->
+    <div class="row g-3 justify-content-center">
+      <!-- Card 1: Login -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg text-white bg-primary bg-gradient">
+          <div class="card-body d-flex flex-column justify-content-between py-5" style="min-height: 350px;">
+            <i class="bi bi-box-arrow-in-right display-2 mb-3"></i>
+            <h5 class="card-title mb-3 fw-bold">Har du allerede en konto?</h5>
+            <p class="card-text flex-grow-1 mb-4">
+              Så kan du allerede logge ind nu og fortsætte med din indkøbsliste!
+            </p>
+            <a class="btn btn-light btn-lg fw-bold text-primary" [routerLink]="['/login-registrer']" role="button">
+              LOG IND
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Signup -->
+      <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-lg text-white bg-primary bg-gradient">
+          <div class="card-body d-flex flex-column justify-content-between py-5" style="min-height: 350px;">
+            <i class="bi bi-person-plus display-2 mb-3"></i>
+            <h5 class="card-title mb-3 fw-bold">Har du ikke en konto?</h5>
+            <p class="card-text flex-grow-1 mb-4">
+              Opret dig gratis og kom i gang med at planlægge smartere indkøb på få sekunder.
+            </p>
+            <a class="btn btn-light btn-lg fw-bold text-primary" [routerLink]="['/login-registrer']" role="button">
+              OPRET PROFIL
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

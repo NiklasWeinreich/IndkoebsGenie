@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndkoebsGenieBackend.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20251106125430_data")]
+    [Migration("20251112164100_data")]
     partial class data
     {
         /// <inheritdoc />
@@ -191,7 +191,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "admin@mail.com",
                             FirstName = "Admin",
                             LastName = "One",
-                            Password = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2",
+                            Password = "$2b$12$U4g5ba6EWpUaAt9CVWAgT./XXUjs3fKjpAsawmqjvvYySgrwUy1.6",
                             PostalCode = 2500,
                             Region = "København",
                             Role = 1
@@ -204,7 +204,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "admin2@mail.com",
                             FirstName = "Admin",
                             LastName = "Two",
-                            Password = "$2b$12$X0tTEphJRWXToabecGex6ODPX50hK1mHpytEQ0m9TnDboK7NgWYX2",
+                            Password = "$2b$12$U4g5ba6EWpUaAt9CVWAgT./XXUjs3fKjpAsawmqjvvYySgrwUy1.6",
                             PostalCode = 4000,
                             Region = "Sjælland",
                             Role = 1
@@ -217,7 +217,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "testmail@mail.com",
                             FirstName = "Børge",
                             LastName = "Jeppensen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 8000,
                             Region = "Jylland",
                             Role = 0
@@ -230,7 +230,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "mette.larsen@mail.com",
                             FirstName = "Mette",
                             LastName = "Larsen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 2100,
                             Region = "Hovedstaden",
                             Role = 0
@@ -243,7 +243,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "jonas.poulsen@mail.com",
                             FirstName = "Jonas",
                             LastName = "Poulsen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 9000,
                             Region = "Nordjylland",
                             Role = 0
@@ -256,7 +256,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "sofie.nielsen@mail.com",
                             FirstName = "Sofie",
                             LastName = "Nielsen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 5000,
                             Region = "Syddanmark",
                             Role = 0
@@ -269,7 +269,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "anders.madsen@mail.com",
                             FirstName = "Anders",
                             LastName = "Madsen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 8600,
                             Region = "Midtjylland",
                             Role = 0
@@ -282,7 +282,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "camilla.hansen@mail.com",
                             FirstName = "Camilla",
                             LastName = "Hansen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 4700,
                             Region = "Sjælland",
                             Role = 0
@@ -295,7 +295,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "rasmus.christensen@mail.com",
                             FirstName = "Rasmus",
                             LastName = "Christensen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 9800,
                             Region = "Nordjylland",
                             Role = 0
@@ -308,7 +308,7 @@ namespace IndkoebsGenieBackend.Migrations
                             Email = "ida.jorgensen@mail.com",
                             FirstName = "Ida",
                             LastName = "Jørgensen",
-                            Password = "$2b$12$p/4Pfi4v6xFRMp9F.WGfCeGDLB2/JddhCeL9C5/n5GVaojZltZjSG",
+                            Password = "$2b$12$YxbU0hgrY1aBwVsMLmVdBeScgC1rAtIc1ScvuZIS5zjzDBUyMKK9.",
                             PostalCode = 6000,
                             Region = "Syddanmark",
                             Role = 0

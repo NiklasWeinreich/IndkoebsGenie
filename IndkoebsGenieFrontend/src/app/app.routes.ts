@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AdminPanelComponent } from './components/admin-panel-component/admin-panel-component';
 
 export const routes: Routes = [
+    { path: '', loadComponent: () => import('./components/home-component/home-component').then(m => m.HomeComponent) },
     { path: 'about', loadComponent: () => import('./components/about-component/about-component').then(m => m.AboutComponent) },
     { path: 'current-list', loadComponent: () => import('./components/currrent-lists-component/currrent-lists-component').then(m => m.CurrrentListsComponent) },
     { path: 'create-list', loadComponent: () => import('./components/create-list-component/create-list-component').then(m => m.CreateListComponent) },
